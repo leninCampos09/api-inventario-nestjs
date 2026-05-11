@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.category.deleteMany();
-  await prisma.product.deleteMany();
   await prisma.inventoryMovement.deleteMany();
+  await prisma.product.deleteMany();
+  await prisma.category.deleteMany();
 
   const electronics = await prisma.category.create({ data: { name: 'Electrónica', description: 'Dispositivos y accesorios' } });
   const groceries = await prisma.category.create({ data: { name: 'Alimentos', description: 'Comestibles y bebidas' } });
