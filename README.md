@@ -1,3 +1,70 @@
+# API Inventario - Tienda
+
+API REST para gestionar productos, categorías y movimientos de inventario usando NestJS y MySQL con Prisma.
+
+Requisitos mínimos instalados:
+
+- Node.js
+- MySQL
+
+Instalación
+
+1. Copiar `.env.example` a `.env` y ajustar `DATABASE_URL`.
+
+2. Instalar dependencias:
+
+```bash
+npm install
+```
+
+3. Generar Prisma Client y migrar la BD:
+
+```bash
+npm run prisma:generate
+npm run prisma:migrate
+```
+
+4. Cargar datos de ejemplo (seed):
+
+```bash
+npm run prisma:seed
+```
+
+5. Iniciar en modo desarrollo:
+
+```bash
+npm run start:dev:fast
+```
+
+Endpoints principales
+
+- `POST /products`
+- `GET /products`
+- `GET /products/:id`
+- `PATCH /products/:id`
+- `DELETE /products/:id`
+
+- `POST /categories`
+- `GET /categories`
+- `PATCH /categories/:id`
+- `DELETE /categories/:id`
+
+- `POST /inventory/movements`
+- `GET /inventory/movements`
+
+Documentación Swagger disponible en `/docs` cuando la app corre.
+
+Script SQL
+
+- Hay un script SQL de inicialización y datos de ejemplo en `prisma/init.sql`.
+- Para importarlo localmente con MySQL (Laragon):
+
+```bash
+mysql -u root -p < prisma/init.sql
+```
+
+Si prefieres usar Prisma Migrate, ejecuta `npx prisma migrate dev` como aparece más arriba.
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
